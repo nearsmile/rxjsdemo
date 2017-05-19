@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>rxjs-Demo</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.input-one {
+			margin: 10px 20px;
+		}
+		.input-one::before {
+			content: '输入监听：';
+			margin-right: 5px;
+		}
+
+		button {
+			padding: 5px;
+			/* height: 30px; */
+		}
+	</style>
+</head>
+<body>
+	<input type="text" class="input-one" id="input"> <br>
+	<button id="btn">1.创建可观察对象</button>
+	<button id="btnPurity">2.隔离状态purity</button>
+	<button id="btnFlow">3.Flow流</button>
+
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./RxJS-master/dist/rx.lite.js"></script>
+<script>
+	
+	let btn = document.querySelector('#btn');
+	let btnPurity = document.querySelector('#btnPurity');
+	let btnFlow = document.querySelector('#btnFlow');
+
+	let input = document.querySelector('#input');
+
+	// 使用RxJS创建一个可观察对象
+	Rx.Observable.fromEvent(btn, 'click')
+	.subscribe(() => console.log('Click!'));
+
+	// 使用RxJS来隔离你的状态
+	//scan操作符和数组中reduce方法的类似， 它需要一个传递给回调函数的参数值。 回调函数的返回值将成为下一次回调函数运行时要传递的下一个参数值
+	let count = 0;
+	Rx.Observable.fromEvent(btnPurity, 'click')
+	.scan(count => count + 1, 0)
+	.subscribe(count => console.log(`Click ${count} times`));
+
+	// 每秒最多只能点击一次的实现
+	// 其他的流操作符是filter, delay, debounceTime, take, takeUntil, distinct, distinctUntilChanged 
+	let countSecond = 0;
+	Rx.Observable.fromEvent(btnFlow, 'click')
+	.throttle(1000)
+	.scan(countSecond => countSecond + 1, 0)
+	.subscribe(countSecond => console.log(`Clicked ${countSecond} times`));
+
+	let keyup = Rx.Observable.fromEvent(input, 'keyup')
+	.map(e => e.target.value)
+	.filter(text => text.length > 2)
+	// .throttle(500)
+	.distinctUntilChanged()
+	.subscribe(text => console.log(text))
+	// console.log(keyup)
+
+</script>
+</body>
+</html>
