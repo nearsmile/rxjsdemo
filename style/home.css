@@ -1,0 +1,14 @@
+
+.input-one {
+	margin: 10px 20px;
+}
+.input-one::before {
+	content: '输入监听：';
+	margin-right: 5px;
+}
+
+button {
+	padding: 5px;
+	margin: 5px;
+	/* height: 30px; */
+}
