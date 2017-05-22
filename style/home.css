@@ -1,10 +1,13 @@
 
-.input-one {
-	margin: 10px 20px;
+.input-one-wrap {
+	display: flex;
+  align-items: center;
 }
-.input-one::before {
-	content: '输入监听：';
-	margin-right: 5px;
+
+.input-one {
+	flex:1;
+	height: 50px;
+	display: inline-block;
 }
 
 button {

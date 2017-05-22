@@ -8,7 +8,10 @@
 	<link rel="stylesheet" href="./style/home.css">
 </head>
 <body>
-	<input type="text" class="input-one" id="input"> <br>
+	<div class="input-one-wrap">
+		间隔1s监听：
+		<input type="text" class="input-one" id="input"> <br>
+	</div>
 	<button id="btn">1.创建可观察对象</button>
 	<button id="btnPurity">2.隔离状态purity</button>
 	<button id="btnFlow">3.Flow流</button>
@@ -25,6 +28,8 @@
 	const info = console.info.bind(console);
 	const assert = console.assert.bind(console);
 	const error = console.error.bind(console);
+	const group = console.group.bind(console);
+	const groupEnd = console.log.bind(console);
 	
 	let btn = document.querySelector('#btn');
 	let btnPurity = document.querySelector('#btnPurity');
@@ -39,7 +44,8 @@
 <!-- <script src="./src/start.js"></script> -->
 
 <!-- <script src="./src/recommend.js"></script> -->
-<script src="./src/recommendTwo.js"></script>
+<!-- <script src="./src/recommendTwo.js"></script> -->
+<script src="./src/rule.js"></script>
 
 </body>
 </html>

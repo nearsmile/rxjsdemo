@@ -27,8 +27,8 @@
 
 	let keyup = Rx.Observable.fromEvent(input, 'keyup')
 	.map(e => e.target.value)
-	.filter(text => text.length > 2)
-	// .throttle(500)
+	.filter(text => !!text)
+	.throttle(1000)
 	.distinctUntilChanged()
 	.subscribe(text => console.log(text))
 	// console.log(keyup)
