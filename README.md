@@ -27,6 +27,8 @@ npm run e2e
 npm test
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
-[reference](https://github.com/RxJS-CN/rxjs5-ultimate-cn)
+1. For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/)
+1. [docs for vue-loader](http://vuejs.github.io/vue-loader).
+1. [RxJS Marbles](http://rxmarbles.com/)
+1. [reference](https://github.com/RxJS-CN/rxjs5-ultimate-cn)
+1. [git-book](https://rxjs-cn.github.io/rxjs5-ultimate-cn/)
