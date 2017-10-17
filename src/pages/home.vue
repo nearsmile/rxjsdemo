@@ -25,10 +25,12 @@
         const result = []
         files.keys().forEach(key => {
           let name = key.replace(/(\.\/|\.vue)/g, '')
-          result.push({
-            name,
-            link: `/${name}`
-          })
+          if (name !== 'home') {
+            result.push({
+              name,
+              link: `/${name}`
+            })
+          }
         })
         return result
       }

@@ -21,6 +21,12 @@ routes.push({
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes
 })
+
+router.afterEach(route => {
+  console.clear()
+})
+
+export default router
