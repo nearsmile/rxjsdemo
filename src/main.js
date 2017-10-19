@@ -12,6 +12,9 @@ import { Observable } from 'rxjs/Observable'
 import { Subscription } from 'rxjs/Subscription'
 import { Subject } from 'rxjs/Subject'
 
+import { setupRxDevtools } from 'rx-devtools/rx-devtools'
+setupRxDevtools()
+
 Vue.use(VueRx, {
   Observable,
   Subscription,
